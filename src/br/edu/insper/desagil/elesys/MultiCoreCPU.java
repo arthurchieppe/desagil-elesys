@@ -2,7 +2,7 @@ package br.edu.insper.desagil.elesys;
 
 import java.util.List;
 
-public class MultiCoreCPU {
+public class MultiCoreCPU extends CPU {
 	private List<SingleCoreCPU> cores;
 	private double overhead;
 
@@ -15,6 +15,7 @@ public class MultiCoreCPU {
 		return this.cores;
 	}
 
+	@Override
 	public double getPower() {
 		double power = 0;
 		for (SingleCoreCPU core: this.cores) {

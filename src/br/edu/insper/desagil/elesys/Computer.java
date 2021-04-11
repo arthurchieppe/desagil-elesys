@@ -4,29 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Computer {
-	private List<SingleCoreCPU> singleProcs;
-	private List<MultiCoreCPU> multiProcs;
+	private List<CPU> procs;
 
 	public Computer() {
-		this.singleProcs = new ArrayList<>();
-		this.multiProcs = new ArrayList<>();
+		this.procs = new ArrayList<>();
 	}
 
-	public void add(SingleCoreCPU proc) {
-		this.singleProcs.add(proc);
-	}
-
-	public void add(MultiCoreCPU proc) {
-		this.multiProcs.add(proc);
+	public void add(CPU proc) {
+		this.procs.add(proc);
 	}
 
 	public double getProcPower() {
 		double s = 0;
-		for (SingleCoreCPU singleProc: this.singleProcs) {
-			s += singleProc.getPower();
-		}
-		for (MultiCoreCPU multiProc: this.multiProcs) {
-			s += multiProc.getPower();
+		for (CPU proc: this.procs) {
+			s += proc.getPower();
 		}
 		return s;
 	}
